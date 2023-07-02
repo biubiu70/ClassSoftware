@@ -29,44 +29,33 @@ pyuic5 -x main.ui -o main.py
 ```
 
 
+将文件打包为exe
+```bash
+pyinstaller --onefile --add-data "imgs;imgs" --add-data "icons;icons" main.py
+```
 
 
 
 
-
-
-
-
-
-### 05、开源软件修改
-
-
+### 05、开源软件修改——PyQt5-YOLOv5
 
 1. 修改apprcc.qrc为py
+`pyrcc5 apprcc.qrc -o apprcc.py`
+2. 修改对应文件夹下的imgs，然后再designer中打开apprcc.qrc，保存为filename.ui
+3. 将filename.ui改为py文件使用命令``pyuic5 - x filename.ui -o filename.py`
+4. 在main_win\win.py下添加头文件，其中import filename即调用ui生成的filename.py文件：
+```python
+import sys
+sys.path.append("..")
+import filename 
+# bilibili评论区添加：https://www.bilibili.com/video/BV1sQ4y1C7Vk
+```
+5. 执行命令，打包为exe,见[PyQt5-YOLOv5](https://github.com/Javacr/PyQt5-YOLOv5)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-> 小白上手改的方法：
+> 小白上手改的方法：（b站评论区的Tips）
 >
 > 1、在conda终端输入Designer打开QT设计师界面，
 >
@@ -75,9 +64,6 @@ pyuic5 -x main.ui -o main.py
 > 3、在conda终端，打开apprcc.qrc所在的文件路径，然后输入`pyrcc5 apprcc.qrc -o apprcc.py`，会把qrc资源文件，转换成py文件。
 >
 > 4、在qt设计师界面保存win.UI,然后通过代码转换成py文件
-
-
-
 
 
 

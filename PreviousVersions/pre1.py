@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
 
         MainWindow.setCentralWidget(self.centralwidget)
 
-        app_icon = QtGui.QIcon("icons/me.png")  # Its me :)
+        app_icon = QtGui.QIcon("../icons/me.png")  # Its me :)
         MainWindow.setWindowIcon(app_icon)  
 
         # Create vertical layout for central widget
@@ -119,7 +119,7 @@ class Ui_MainWindow(object):
         self.process.waitForStarted()
 
     def show_photo(self):
-        photo_path = "E:\\StudyProgram\\ClassSoftware\\imgs\\bus.jpg"  # 替换为您的照片路径
+        photo_path = "/imgs/bus.jpg"  # 替换为您的照片路径
         pixmap = QtGui.QPixmap(photo_path)
         print("success")
         self.output.setPixmap(pixmap)

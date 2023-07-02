@@ -8,7 +8,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
 
         # 设置背景图片
-        pixmap = QtGui.QPixmap("imgs/background.jpg")
+        pixmap = QtGui.QPixmap("../imgs/background.jpg")
         self.background_label = QtWidgets.QLabel(self.centralwidget)
         self.background_label.setGeometry(QtCore.QRect(0, 0, 1208, 739))
         self.background_label.setPixmap(pixmap)

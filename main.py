@@ -131,7 +131,7 @@ class Ui_MainWindow(object):
         # print("Start execution")
         self.clock()
         self.show_process.setText(f"Complete! using time :{self.runningTime:.2f} seconds")
-        self.process.start("cmd.exe", ["/c","activate yolov5 && cd C:\\yolov5-master && python detect.py --source data/images --weights yolov5s.pt --conf 0.25 --device cpu"])
+        # self.process.start("cmd.exe", ["/c","activate yolov5 && cd C:\\yolov5-master && python detect.py --source data/images --weights yolov5s.pt --conf 0.25 --device cpu"])
         self.process.waitForStarted()
         print("Start execution")
 
