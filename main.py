@@ -131,18 +131,34 @@ class Ui_MainWindow(object):
         # print("Start execution")
         self.clock()
         self.show_process.setText(f"Complete! using time :{self.runningTime:.2f} seconds")
-        # self.process.start("cmd.exe", ["/c","activate yolov5 && cd C:\\yolov5-master && python detect.py --source data/images --weights yolov5s.pt --conf 0.25 --device cpu"])
+        self.process.start("cmd.exe", ["/c","activate yolov5 && cd C:\\yolov5-master && python detect.py --source data/images --weights yolov5s.pt --conf 0.25 --device cpu"])
         self.process.waitForStarted()
         print("Start execution")
 
+    def run_mmlab(self):
+        self.process = QProcess()
+        self.clock()
+        self.show_process.setText(f"Complete! using time :{self.runningTime:.2f} seconds")
+        self.process.start("cmd.exe", ["/c","conda activate mmlab "
+                                            "&& cd C:\\附件二 "
+                                            "&& python detect.py --source data/images --weights yolov5s.pt --conf 0.25 --device cpu"])
+        self.process.waitForStarted()
+
+    def run_openmmlab(self):
+        self.process = QProcess()
+        self.clock()
+        self.show_process.setText(f"Complete! using time :{self.runningTime:.2f} seconds")
+        self.process.start("cmd.exe", ["/c","conda activate openmmlab "
+                                            "&& cd C:\\附件三 "
+                                            "&& python demo/image_demo.py ./data/VOCdevkit/VOC2012/JPEGImages/73.jpg ./work_dirs/fcn_hr18s_4xb4-20k_voc12aug-512x512/fcn_hr18s_4xb4-20k_voc12aug-512x512.py ./work_dirs/fcn_hr18s_4xb4-20k_voc12aug-512x512/iter_20000.pth --out-file demo/out.png --device cpu"])
+        self.process.waitForStarted()
+
     def show_photo(self):
-        photo_path = ".\\imgs\\bus.jpg"  # 替换为您的照片路径
+        photo_path = ".\\imgs\\out.png"
         pixmap = QtGui.QPixmap(photo_path)
-        # print("success")
         self.show_process.setText("SUCCESS")
         self.output.setPixmap(pixmap)
         self.output.setScaledContents(True)  # 设置图像自适应界面大小
-
 
 
 if __name__ == "__main__":
